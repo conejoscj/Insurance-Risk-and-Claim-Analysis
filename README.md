@@ -17,45 +17,52 @@ The data is organized to track each policyholder's profile and their claim histo
 
 **Entity Relationship Diagram (ERD):**
 
-![Data Model](images/hr.datamodel.png)
+![Data Model](images/ir.datamodel.png)
 
 # Executive Summary
-The organization currently has **1,470** employees with an overall **Attrition Rate of 16.12%** (237 people have left). The **R&D department** accounts for over half of all attrition (**56.12%**). Most employees who leave are in the **25–34** age bracket, and a significant number come from a **Life Sciences** education background. While the average age is **37**, the "Under 25" and "25–34" groups show the highest vulnerability to leaving.
+The insurance portfolio consists of **37,541 policies** with a massive total claim payout of **$187.82M**. The average claim amount is **$5.00K**. While the gender split is almost perfectly equal, **Private car use** accounts for the vast majority of claim costs ($150.40M). Interestingly, drivers with **Bachelors degrees** and those in **Urban/Suburban** areas represent the highest volume of policies and claims.
 
 **High-Level Metrics**
-* **Overall Employees**: 1,470
-* **Attrition**: 237
-* **Attrition Rate**: 16.12%
-* **Active Employees**: 1,233
-* **Average Age**: 37
+* **Total Policies**: 37,541
+* **Total Claim Amount**: $187.82 Million
+* **Avg. Claim Frequency**: 0.51 (About half of the policies have a claim)
+* **Avg. Claim Amount**: $5,000
+* **Gender Split**: 18.74K Male / 18.81K Female
 
-![Dashboard Overview](images/hr.dashboard.png)
+**Total Claim Amount**
+
+![Dashboard Overview](images/ir.totalclaim.png)
+
+**Total Policies**
+
+![Dashboard Overview](images/ir.totalpolicies.png)
 
 # Insights Deep Dive
-### Department Analysis: R&D as the Primary Attrition Driver
-* The R&D department has the highest attrition with **133** employees leaving, followed by Sales (**92**).
-* R&D represents more than half of the total company turnover. HR needs to investigate if this is due to high-pressure environments or uncompetitive pay in technical roles.
+### The "Private Use" Risk Factor
+* Private car use accounts for **$150.40M** in claims compared to only **$37.41M** for Commercial use.
+* Even though there are 30K Private policies, the claim amount is disproportionately high. Private drivers are the primary source of financial risk.
 
-![Dashboard Overview](images/hr.departmentanalysis.png)
+![Dashboard Overview](images/ir.riskfactor.png)
 
-### Age Group Analysis: High Turnover in Young Professionals
-  * The **25–34** age group has the highest number of departures (**112 employees**).
-  * This group makes up nearly **47%** of total attrition. Younger employees are likely leaving for better career growth opportunities elsewhere.
-![Dashboard Overview](images/hr.agegroup.png)
+### Education and Marital Status Impact
+  * People with **Bachelors degrees** have the highest claims ($94.02M). Within that group, **Single** individuals have the highest claims ($38.72M) followed closely by **Married** individuals ($31.10M).
+  * Single drivers with higher education levels are surprisingly a very high-cost segment for the company.
+![Dashboard Overview](images/ir.statusimpact.png)
 
-### Education Analysis: Life Sciences and Medical Fields
-* Employees with Life Sciences (**89**) and Medical (**63**) backgrounds are the most likely to leave.
-* There is a high demand for these skills in the market. The company may be losing specialized talent to competitors.
+### Vehicle Age and Make Trends
+* Claims stayed low for cars made before 1998 but spiked significantly for cars made between **2000** and **2015**. **Ford** and **Chevrolet** are the top car makes for both policy volume and claim amounts.
+* Newer cars (post-2000) result in much higher claim payouts, likely due to higher repair costs and more technology in the vehicles.
+![Dashboard Overview](images/ir.trends.png)
+
+### The "Kids Driving" Drop
+* Policies where **0 kids are driving** account for **$134M** in claims. The cost drops drastically as the number of kids driving increases (only $4M for 3+ kids).
+* This suggests that the majority of our policyholders do not have children driving their cars, or that parents with driving children are much more cautious.
   
-![Dashboard Overview](images/hr.educationanalysis.png)
+![Dashboard Overview](images/ir.drop.png)
 
-### Role & Satisfaction: Low Ratings in Laboratory and Sales
-* Laboratory Technicians and Sales Executives have some of the highest counts of "Level 1" (lowest) satisfaction scores.
-* These roles are high-stress. The data shows **56** Lab Techs gave the lowest satisfaction rating, which correlates with high attrition in the R&D department.
-
-![Dashboard Overview](images/hr.satisfactionanalysis.png)
 
 # Recommendations
-* **R&D Retention Program**: Conduct "Stay Interviews" in the R&D department to understand why 56% of departures are happening there.
-* **Career Pathing for 25–34 Year Olds**: Since this group leaves the most, implement a clear 2-year promotion track to keep them engaged.
-* **Role-Specific Support**: Improve the working conditions for Laboratory Technicians and Sales Executives to raise their job satisfaction scores from Level 1 to Level 3.
+* **Urban Pricing Adjustment**: Since Urban, Suburban, and Highly Urban zones all have claims over **$37M** each, consider increasing premiums for city drivers where accidents are more frequent.
+* **Targeted Discounts**: Offer lower rates to **Married** policyholders with **High School or PhD** education levels, as their total claim amounts are significantly lower than the Bachelors group.
+* **Car Make Strategy**: Review the risk levels for **Ford and Chevrolet** owners. Since they lead in claims, a slightly higher base premium for these makes could offset the high payout costs.
+* **Vehicle Age Incentives**: Create specialized "Classic Car" or "Older Vehicle" (Pre-2000) insurance packages, as these show much lower claim risks compared to newer models.
